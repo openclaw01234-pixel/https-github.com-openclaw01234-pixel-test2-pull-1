@@ -1,0 +1,55 @@
+{
+  "name": "MX Player Pro - Next Gen Video Platform",
+  "short_name": "MX Player Pro",
+  "description": "World's best video player with AI subtitles, watch party, universal search & more",
+  "id": "com.mxplayer.pro.web",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone", "fullscreen"],
+  "orientation": "any",
+  "theme_color": "#ff3366",
+  "background_color": "#0a0a0f",
+  "categories": ["entertainment", "video", "multimedia"],
+  "lang": "en",
+  "dir": "ltr",
+  "prefer_related_applications": false,
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-maskable-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "screenshots": [
+    {
+      "src": "icons/splash.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "MX Player Pro home screen"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Player",
+      "short_name": "Play",
+      "description": "Open video player",
+      "url": "./index.html?view=player",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Watch Party",
+      "short_name": "Party",
+      "description": "Join watch party",
+      "url": "./index.html?view=watchparty",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Universal Search",
+      "short_name": "Search",
+      "description": "Search across platforms",
+      "url": "./index.html?view=search",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}

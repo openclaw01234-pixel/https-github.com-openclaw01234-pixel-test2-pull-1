@@ -1,0 +1,17 @@
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+.DS_Store
+*.log
+.env
+.vscode/
+.idea/
+
+# Capacitor
+android/
+ios/
+
+# Build output
+dist/
+build/

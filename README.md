@@ -1,6 +1,13 @@
 # MX Player Pro - World's Best Video Player
 
-A next-generation video player and entertainment platform built as a single-page web application. Inspired by MX Player, supercharged with AI-powered features, social viewing, and smart playback.
+A next-generation video player and entertainment platform built as a single-page web application + PWA. Inspired by MX Player, supercharged with AI-powered features, social viewing, and smart playback.
+
+## 📱 Want it as an Android APK?
+
+See [APK_BUILD_GUIDE.md](./APK_BUILD_GUIDE.md) for 4 ways to get an APK:
+- **Easiest:** Deploy + PWABuilder.com → real signed APK in 5 minutes
+- **Instant:** Open in Chrome on Android → tap "Install" → no APK needed
+- **Pro:** Capacitor + Android Studio for full native build
 
 ## Live Demo
 
