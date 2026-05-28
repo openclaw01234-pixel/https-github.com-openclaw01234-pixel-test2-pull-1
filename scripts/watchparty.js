@@ -55,7 +55,8 @@ const WatchParty = {
       const input = document.getElementById('chatInput');
       const txt = input.value.trim();
       if (!txt) return;
-      this.addMessage('You', txt);
+      const userName = (typeof Auth !== 'undefined' && Auth.user && !Auth.user.isGuest) ? Auth.user.name : 'You';
+      this.addMessage(userName, txt);
       input.value = '';
 
       // Bot reply after delay
@@ -89,8 +90,9 @@ const WatchParty = {
 
   startBotChat() {
     setInterval(() => {
-      // Only run when watch party view active
+      // Only run when watch party view active AND user logged in
       if (App.currentView !== 'watchparty') return;
+      if (typeof Auth !== 'undefined' && !Auth.isLoggedIn()) return;
       const bot = this.bots[Math.floor(Math.random() * this.bots.length)];
       const msg = this.botMessages[Math.floor(Math.random() * this.botMessages.length)];
       this.addMessage(bot, msg);
