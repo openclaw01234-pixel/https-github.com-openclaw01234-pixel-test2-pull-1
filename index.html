@@ -42,6 +42,7 @@
 
     <nav class="nav">
       <button class="nav-item active" data-view="home"><span class="nav-icon">⌂</span> Home</button>
+      <button class="nav-item nav-highlight" id="navOpenVideo"><span class="nav-icon">📂</span> Open Video</button>
       <button class="nav-item" data-view="player"><span class="nav-icon">▶</span> Player</button>
       <button class="nav-item" data-view="search"><span class="nav-icon">⌕</span> Universal Search</button>
       <button class="nav-item" data-view="watchparty"><span class="nav-icon">◉</span> Watch Party</button>
@@ -71,6 +72,7 @@
         <input type="text" placeholder="Search across Netflix, Prime, YouTube, MX..." id="topSearch" />
       </div>
       <div class="topbar-actions">
+        <button class="icon-btn icon-btn-primary" title="Open video from phone" id="topOpenVideoBtn">📂</button>
         <button class="icon-btn" title="Mood" id="moodBtn">😊</button>
         <button class="icon-btn" title="Notifications">🔔</button>
         <button class="icon-btn" title="Cast">⎘</button>
@@ -155,13 +157,28 @@
 
     <!-- =============== HOME VIEW =============== -->
     <section class="view active" id="view-home">
+      <!-- BIG VIDEO OPEN CTA -->
+      <div class="big-cta">
+        <div class="big-cta-icon">📂</div>
+        <div class="big-cta-content">
+          <h2>Open a video from your phone</h2>
+          <p>Pick any video file (MP4, MKV, AVI, MOV, WebM) and play it instantly. All your local videos work here.</p>
+          <div class="big-cta-actions">
+            <button class="btn btn-primary" id="homeBigOpenBtn">📂 Choose Video File</button>
+            <button class="btn btn-ghost" id="homeBigFolderBtn">📁 Open Folder</button>
+            <button class="btn btn-ghost" id="homeBigUrlBtn">🌐 From URL</button>
+          </div>
+        </div>
+      </div>
+
       <div class="hero">
         <div class="hero-content">
           <div class="hero-badge">★ FEATURED</div>
           <h1 class="hero-title">Your Universe of Entertainment</h1>
           <p class="hero-sub">AI-powered playback • Cross-platform search • Watch parties • 8K upscaling</p>
           <div class="hero-actions">
-            <button class="btn btn-primary" data-view="player">▶ Start Watching</button>
+            <button class="btn btn-primary" id="heroOpenFileBtn">📂 Open Video from Phone</button>
+            <button class="btn btn-ghost" data-view="player">▶ Sample Videos</button>
             <button class="btn btn-ghost" data-view="watchparty">◉ Host Watch Party</button>
           </div>
           <div class="hero-stats">
@@ -692,6 +709,16 @@
     </div>
   </div>
 
+  <!-- ============= GLOBAL FILE PICKERS (accessible from any view) ============= -->
+  <input type="file" id="globalFilePicker" accept="video/*,audio/*,.mkv,.avi,.mov,.flv,.wmv,.webm,.mp4,.m4v,.3gp,.ogv,.ts,.mts" hidden />
+  <input type="file" id="globalFolderPicker" webkitdirectory directory multiple hidden />
+
+  <!-- ============= FLOATING ACTION BUTTON (always visible) ============= -->
+  <button class="fab" id="fabOpenVideo" title="Open video">
+    <span class="fab-icon">📂</span>
+    <span class="fab-label">Open Video</span>
+  </button>
+
   <!-- Toast -->
   <div class="toast" id="toast"></div>
 
@@ -708,6 +735,7 @@
   <script src="scripts/search.js"></script>
   <script src="scripts/library.js"></script>
   <script src="scripts/vault.js"></script>
+  <script src="scripts/video-opener.js"></script>
   <script src="scripts/init.js"></script>
   <script src="scripts/pwa.js"></script>
 </body>

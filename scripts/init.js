@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   Search.init();
   Library.init();
   Vault.init();
+  VideoOpener.init();
 
   // Render rows
   renderContentRow('trendingRow', TRENDING);
