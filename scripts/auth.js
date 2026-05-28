@@ -310,7 +310,7 @@ const Auth = {
     });
 
     // Login form
-    document.getElementById('loginForm')?.addEventListener('submit', async (e) => {
+    document.getElementById('form-login')?.addEventListener('submit', async (e) => {
       e.preventDefault();
       const email = document.getElementById('loginEmail').value.trim();
       const password = document.getElementById('loginPassword').value;
@@ -326,7 +326,7 @@ const Auth = {
     });
 
     // Signup form
-    document.getElementById('signupForm')?.addEventListener('submit', async (e) => {
+    document.getElementById('form-signup')?.addEventListener('submit', async (e) => {
       e.preventDefault();
       const name = document.getElementById('signupName').value.trim();
       const email = document.getElementById('signupEmail').value.trim();
