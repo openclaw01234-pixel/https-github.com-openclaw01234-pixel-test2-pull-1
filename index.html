@@ -24,8 +24,10 @@
   <link rel="stylesheet" href="styles/main.css" />
   <link rel="stylesheet" href="styles/player.css" />
   <link rel="stylesheet" href="styles/components.css" />
+  <link rel="stylesheet" href="styles/auth.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 <body>
   <!-- ============= SIDEBAR NAVIGATION ============= -->
@@ -74,6 +76,82 @@
         <button class="icon-btn" title="Cast">⎘</button>
       </div>
     </header>
+
+    <!-- =============== AUTH VIEW =============== -->
+    <section class="view" id="view-auth">
+      <div class="auth-shell">
+        <div class="auth-card">
+          <div class="auth-header">
+            <div class="auth-logo">MX</div>
+            <h1>Welcome to MX Player Pro</h1>
+            <p>Sign in to unlock watch parties, sync, and more</p>
+          </div>
+
+          <div class="auth-tabs">
+            <button class="auth-tab active" data-auth="login">Login</button>
+            <button class="auth-tab" data-auth="signup">Sign Up</button>
+          </div>
+
+          <!-- LOGIN FORM -->
+          <form class="auth-form active" id="form-login">
+            <div class="auth-input-group">
+              <label class="auth-input-label">Email</label>
+              <input class="auth-input" type="email" id="loginEmail" placeholder="you@example.com" required autocomplete="email" />
+            </div>
+            <div class="auth-input-group">
+              <label class="auth-input-label">Password</label>
+              <input class="auth-input" type="password" id="loginPassword" placeholder="Your password" required autocomplete="current-password" />
+              <button type="button" class="password-toggle">👁️</button>
+            </div>
+            <div class="auth-error" id="loginError"></div>
+            <button type="submit" class="btn btn-primary">Sign In</button>
+
+            <div class="auth-divider">or continue with</div>
+            <button type="button" class="btn-google">
+              <svg viewBox="0 0 48 48"><path fill="#FFC107" d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 12.955 4 4 12.955 4 24s8.955 20 20 20 20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z"/><path fill="#FF3D00" d="M6.306 14.691l6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 16.318 4 9.656 8.337 6.306 14.691z"/><path fill="#4CAF50" d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238C29.211 35.091 26.715 36 24 36c-5.202 0-9.619-3.317-11.283-7.946l-6.522 5.025C9.505 39.556 16.227 44 24 44z"/><path fill="#1976D2" d="M43.611 20.083H42V20H24v8h11.303c-.792 2.237-2.231 4.166-4.087 5.571.001-.001.002-.001.003-.002l6.19 5.238C36.971 39.205 44 34 44 24c0-1.341-.138-2.65-.389-3.917z"/></svg>
+              Continue with Google
+            </button>
+            <div id="googleBtnSlot"></div>
+            <button type="button" class="btn-guest">Continue as Guest →</button>
+          </form>
+
+          <!-- SIGNUP FORM -->
+          <form class="auth-form" id="form-signup">
+            <div class="auth-input-group">
+              <label class="auth-input-label">Full Name</label>
+              <input class="auth-input" type="text" id="signupName" placeholder="Your name" required autocomplete="name" />
+            </div>
+            <div class="auth-input-group">
+              <label class="auth-input-label">Email</label>
+              <input class="auth-input" type="email" id="signupEmail" placeholder="you@example.com" required autocomplete="email" />
+            </div>
+            <div class="auth-input-group">
+              <label class="auth-input-label">Password</label>
+              <input class="auth-input" type="password" id="signupPassword" placeholder="At least 6 characters" required minlength="6" autocomplete="new-password" />
+              <button type="button" class="password-toggle">👁️</button>
+            </div>
+            <div class="auth-input-group">
+              <label class="auth-input-label">Confirm Password</label>
+              <input class="auth-input" type="password" id="signupPassword2" placeholder="Re-type password" required autocomplete="new-password" />
+            </div>
+            <div class="auth-error" id="signupError"></div>
+            <button type="submit" class="btn btn-primary">Create Account</button>
+
+            <div class="auth-divider">or sign up with</div>
+            <button type="button" class="btn-google">
+              <svg viewBox="0 0 48 48"><path fill="#FFC107" d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 12.955 4 4 12.955 4 24s8.955 20 20 20 20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z"/><path fill="#FF3D00" d="M6.306 14.691l6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 16.318 4 9.656 8.337 6.306 14.691z"/><path fill="#4CAF50" d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238C29.211 35.091 26.715 36 24 36c-5.202 0-9.619-3.317-11.283-7.946l-6.522 5.025C9.505 39.556 16.227 44 24 44z"/><path fill="#1976D2" d="M43.611 20.083H42V20H24v8h11.303c-.792 2.237-2.231 4.166-4.087 5.571.001-.001.002-.001.003-.002l6.19 5.238C36.971 39.205 44 34 44 24c0-1.341-.138-2.65-.389-3.917z"/></svg>
+              Sign up with Google
+            </button>
+            <button type="button" class="btn-guest">Continue as Guest →</button>
+          </form>
+
+          <div class="auth-footer">
+            By continuing, you agree to our Terms &amp; Privacy.<br>
+            Your data is stored locally on your device — no servers involved.
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- =============== HOME VIEW =============== -->
     <section class="view active" id="view-home">
@@ -186,6 +264,19 @@
 
     <!-- =============== PLAYER VIEW =============== -->
     <section class="view" id="view-player">
+      <!-- File picker toolbar -->
+      <div class="player-toolbar">
+        <div class="now-playing">
+          <strong>Now Playing:</strong>
+          <span id="nowPlayingName">Big Buck Bunny (sample)</span>
+        </div>
+        <input type="file" id="filePicker" accept="video/*,audio/*,.mkv,.avi,.mov,.flv,.wmv,.webm" hidden />
+        <input type="file" id="folderPicker" webkitdirectory directory multiple hidden />
+        <button class="toolbar-btn primary" id="openFileBtn">📂 Open File</button>
+        <button class="toolbar-btn" id="openFolderBtn">📁 Open Folder</button>
+        <button class="toolbar-btn" id="openUrlBtn">🌐 Open URL</button>
+      </div>
+
       <div class="player-shell">
         <div class="player-wrap" id="playerWrap">
           <video id="video" preload="metadata" crossorigin="anonymous">
@@ -210,6 +301,12 @@
           <div class="gesture-indicator" id="gestureIndicator">
             <span id="gestureIcon">🔊</span>
             <div class="gesture-bar"><div id="gestureFill"></div></div>
+          </div>
+
+          <!-- Drop overlay (shown while dragging files in) -->
+          <div class="drop-overlay" id="dropOverlay">
+            <span class="drop-icon">📥</span>
+            <span>Drop video file here to play</span>
           </div>
 
           <!-- Controls -->
@@ -252,6 +349,29 @@
 
         <!-- Side panel with feature toggles -->
         <aside class="player-side">
+          <h3>Sample Videos</h3>
+          <div class="sample-videos" id="sampleVideos">
+            <div class="sample-video-card" data-src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" data-name="Big Buck Bunny">
+              <span class="sv-emoji">🐰</span>
+              <span class="sv-title">Big Buck Bunny</span>
+            </div>
+            <div class="sample-video-card" data-src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" data-name="Elephants Dream">
+              <span class="sv-emoji">🐘</span>
+              <span class="sv-title">Elephants Dream</span>
+            </div>
+            <div class="sample-video-card" data-src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4" data-name="Sintel">
+              <span class="sv-emoji">🐉</span>
+              <span class="sv-title">Sintel</span>
+            </div>
+            <div class="sample-video-card" data-src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4" data-name="Tears of Steel">
+              <span class="sv-emoji">⚔️</span>
+              <span class="sv-title">Tears of Steel</span>
+            </div>
+          </div>
+
+          <h3>Recent Files</h3>
+          <div class="recent-files" id="recentFilesList"></div>
+
           <h3>Smart Features</h3>
           <div class="toggle-list">
             <label class="toggle"><input type="checkbox" id="aiSubsToggle" /> <span>🤖 AI Live Subtitles</span></label>
@@ -342,7 +462,14 @@
         <p>Watch in sync with friends — chat, react, voice call</p>
       </div>
 
-      <div class="party-shell">
+      <div class="lock-banner" id="watchpartyLock" hidden>
+        <div class="lock-emoji">🔒</div>
+        <h3>Sign in to host or join Watch Parties</h3>
+        <p>Watch Parties need an account so your friends know who you are. Email or Google sign-in — both work.</p>
+        <button class="btn btn-primary" data-view="auth">Sign In</button>
+      </div>
+
+      <div class="party-shell" id="partyShell">
         <div class="party-main">
           <div class="party-video-wrap">
             <video id="partyVideo" controls preload="metadata">
@@ -494,6 +621,11 @@
           <button class="btn btn-ghost wide" id="clearDataBtn">Clear All Data</button>
         </div>
         <div class="setting-card">
+          <h3>Account</h3>
+          <div id="accountInfo" style="font-size:13px; color:var(--text-dim); margin-bottom:12px; line-height:1.6;"></div>
+          <button class="btn btn-ghost wide" id="logoutBtn">Sign Out</button>
+        </div>
+        <div class="setting-card">
           <h3>About</h3>
           <p style="opacity:.7">MX Player Pro — Web Edition</p>
           <p style="opacity:.7">Version 1.0.0 (Prototype)</p>
@@ -523,13 +655,52 @@
     </div>
   </div>
 
+  <!-- ============= GOOGLE DEMO PICKER ============= -->
+  <div class="modal" id="googleDemoModal" hidden>
+    <div class="modal-content google-demo">
+      <div class="google-demo-header">
+        <svg viewBox="0 0 48 48"><path fill="#FFC107" d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 12.955 4 4 12.955 4 24s8.955 20 20 20 20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z"/><path fill="#FF3D00" d="M6.306 14.691l6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 16.318 4 9.656 8.337 6.306 14.691z"/><path fill="#4CAF50" d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238C29.211 35.091 26.715 36 24 36c-5.202 0-9.619-3.317-11.283-7.946l-6.522 5.025C9.505 39.556 16.227 44 24 44z"/><path fill="#1976D2" d="M43.611 20.083H42V20H24v8h11.303c-.792 2.237-2.231 4.166-4.087 5.571.001-.001.002-.001.003-.002l6.19 5.238C36.971 39.205 44 34 44 24c0-1.341-.138-2.65-.389-3.917z"/></svg>
+        <h2>Choose an account</h2>
+      </div>
+      <div class="google-demo-sub">to continue to MX Player Pro</div>
+      <div class="google-demo-list">
+        <button class="demo-google-account" data-name="Rohan Sharma" data-email="rohan.sharma@gmail.com" data-avatar="https://api.dicebear.com/7.x/initials/svg?seed=Rohan%20Sharma&backgroundColor=4285f4">
+          <img src="https://api.dicebear.com/7.x/initials/svg?seed=Rohan%20Sharma&backgroundColor=4285f4" alt="" />
+          <div>
+            <div class="acct-name">Rohan Sharma</div>
+            <div class="acct-email">rohan.sharma@gmail.com</div>
+          </div>
+        </button>
+        <button class="demo-google-account" data-name="Priya Patel" data-email="priya.patel@gmail.com" data-avatar="https://api.dicebear.com/7.x/initials/svg?seed=Priya%20Patel&backgroundColor=ec4899">
+          <img src="https://api.dicebear.com/7.x/initials/svg?seed=Priya%20Patel&backgroundColor=ec4899" alt="" />
+          <div>
+            <div class="acct-name">Priya Patel</div>
+            <div class="acct-email">priya.patel@gmail.com</div>
+          </div>
+        </button>
+        <button class="demo-google-account" data-name="Add another account" data-email="" data-avatar="">
+          <img src="https://api.dicebear.com/7.x/icons/svg?seed=add&icon=plus&backgroundColor=e5e7eb" alt="" />
+          <div>
+            <div class="acct-name" style="color:#1a73e8;">Use another account</div>
+          </div>
+        </button>
+      </div>
+      <div class="google-demo-footer">
+        <span>Demo mode — no real Google API call</span>
+        <button id="closeGoogleDemoBtn">Cancel</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Toast -->
   <div class="toast" id="toast"></div>
 
   <!-- Scripts -->
+  <script src="scripts/config.js"></script>
   <script src="scripts/data.js"></script>
   <script src="scripts/storage.js"></script>
   <script src="scripts/app.js"></script>
+  <script src="scripts/auth.js"></script>
   <script src="scripts/player.js"></script>
   <script src="scripts/ai-features.js"></script>
   <script src="scripts/gestures.js"></script>
