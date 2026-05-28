@@ -8,10 +8,15 @@ pnpm-lock.yaml
 .vscode/
 .idea/
 
-# Capacitor
+# Capacitor / Android build artifacts
 android/
 ios/
+www/
 
-# Build output
-dist/
+# Build output (but DO commit dist/*.apk)
 build/
+.gradle/
+
+# Don't ignore the dist APK
+!dist/
+!dist/*.apk
