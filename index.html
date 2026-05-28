@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MX Player Pro - Next Gen Video Platform</title>
+  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="stylesheet" href="styles/player.css" />
+  <link rel="stylesheet" href="styles/components.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- ============= SIDEBAR NAVIGATION ============= -->
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="brand-logo">MX</div>
+      <div class="brand-text">
+        <div class="brand-name">MX Player</div>
+        <div class="brand-tag">PRO</div>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <button class="nav-item active" data-view="home"><span class="nav-icon">⌂</span> Home</button>
+      <button class="nav-item" data-view="player"><span class="nav-icon">▶</span> Player</button>
+      <button class="nav-item" data-view="search"><span class="nav-icon">⌕</span> Universal Search</button>
+      <button class="nav-item" data-view="watchparty"><span class="nav-icon">◉</span> Watch Party</button>
+      <button class="nav-item" data-view="library"><span class="nav-icon">▤</span> My Library</button>
+      <button class="nav-item" data-view="vault"><span class="nav-icon">🔒</span> Private Vault</button>
+      <button class="nav-item" data-view="settings"><span class="nav-icon">⚙</span> Settings</button>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="profile-card">
+        <div class="avatar">U</div>
+        <div>
+          <div class="profile-name">User</div>
+          <div class="profile-status">Pro Member</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ============= MAIN CONTENT ============= -->
+  <main class="main">
+    <!-- TOP BAR -->
+    <header class="topbar">
+      <button class="menu-toggle" id="menuToggle">☰</button>
+      <div class="search-bar">
+        <span class="search-icon">⌕</span>
+        <input type="text" placeholder="Search across Netflix, Prime, YouTube, MX..." id="topSearch" />
+      </div>
+      <div class="topbar-actions">
+        <button class="icon-btn" title="Mood" id="moodBtn">😊</button>
+        <button class="icon-btn" title="Notifications">🔔</button>
+        <button class="icon-btn" title="Cast">⎘</button>
+      </div>
+    </header>
+
+    <!-- =============== HOME VIEW =============== -->
+    <section class="view active" id="view-home">
+      <div class="hero">
+        <div class="hero-content">
+          <div class="hero-badge">★ FEATURED</div>
+          <h1 class="hero-title">Your Universe of Entertainment</h1>
+          <p class="hero-sub">AI-powered playback • Cross-platform search • Watch parties • 8K upscaling</p>
+          <div class="hero-actions">
+            <button class="btn btn-primary" data-view="player">▶ Start Watching</button>
+            <button class="btn btn-ghost" data-view="watchparty">◉ Host Watch Party</button>
+          </div>
+          <div class="hero-stats">
+            <div><strong>1M+</strong><span>Titles</span></div>
+            <div><strong>100+</strong><span>Languages</span></div>
+            <div><strong>4K/8K</strong><span>Quality</span></div>
+            <div><strong>AI</strong><span>Powered</span></div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="floating-card f1">🎬 AI Dubbing</div>
+          <div class="floating-card f2">📝 Live Subtitles</div>
+          <div class="floating-card f3">🎮 Watch Together</div>
+          <div class="floating-card f4">🚀 8K Upscale</div>
+        </div>
+      </div>
+
+      <!-- Quick Features Grid -->
+      <div class="section-head">
+        <h2>Killer Features</h2>
+        <p>Why MX Player Pro is the world's best</p>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-card" data-action="open-ai">
+          <div class="feature-icon ai">🤖</div>
+          <h3>AI Real-time Subtitles</h3>
+          <p>Auto-generate subtitles in 100+ languages, even offline.</p>
+        </div>
+        <div class="feature-card" data-action="open-dub">
+          <div class="feature-icon dub">🎙️</div>
+          <h3>AI Voice Dubbing</h3>
+          <p>Translate any movie into your language with lip-sync.</p>
+        </div>
+        <div class="feature-card" data-view="watchparty">
+          <div class="feature-icon party">🎉</div>
+          <h3>Watch Party</h3>
+          <p>Sync video with friends, voice chat, floating reactions.</p>
+        </div>
+        <div class="feature-card" data-view="search">
+          <div class="feature-icon search">🔍</div>
+          <h3>Universal Search</h3>
+          <p>Search Netflix, Prime, YouTube, MX in one place.</p>
+        </div>
+        <div class="feature-card" data-action="upscale">
+          <div class="feature-icon hd">📺</div>
+          <h3>AI 8K Upscaling</h3>
+          <p>Old 480p videos → crystal clear 4K/8K.</p>
+        </div>
+        <div class="feature-card" data-action="skip">
+          <div class="feature-icon skip">⏩</div>
+          <h3>Smart Scene Skip</h3>
+          <p>Auto-skip intros, recaps, credits, boring parts.</p>
+        </div>
+        <div class="feature-card" data-action="karaoke">
+          <div class="feature-icon karaoke">🎤</div>
+          <h3>Karaoke Mode</h3>
+          <p>Any song video → instant karaoke with lyrics.</p>
+        </div>
+        <div class="feature-card" data-action="learn">
+          <div class="feature-icon learn">📚</div>
+          <h3>Learn Mode</h3>
+          <p>Watch movies, learn languages — click any word.</p>
+        </div>
+        <div class="feature-card" data-action="vr">
+          <div class="feature-icon vr">🥽</div>
+          <h3>VR / AR Mode</h3>
+          <p>Convert any video to immersive VR experience.</p>
+        </div>
+        <div class="feature-card" data-view="vault">
+          <div class="feature-icon vault">🔐</div>
+          <h3>Private Vault</h3>
+          <p>End-to-end encrypted personal video storage.</p>
+        </div>
+        <div class="feature-card" data-action="mood">
+          <div class="feature-icon mood">💝</div>
+          <h3>Mood Recommendations</h3>
+          <p>Tell us how you feel — get perfect content.</p>
+        </div>
+        <div class="feature-card" data-action="sleep">
+          <div class="feature-icon sleep">💤</div>
+          <h3>Smart Sleep Timer</h3>
+          <p>Auto-pause when you fall asleep (face detection).</p>
+        </div>
+      </div>
+
+      <!-- Trending -->
+      <div class="section-head">
+        <h2>Trending Now</h2>
+        <p>What everyone is watching</p>
+      </div>
+      <div class="content-row" id="trendingRow"></div>
+
+      <!-- Continue Watching -->
+      <div class="section-head">
+        <h2>Continue Watching</h2>
+        <p>Resume where you left off</p>
+      </div>
+      <div class="content-row" id="continueRow"></div>
+    </section>
+
+    <!-- =============== PLAYER VIEW =============== -->
+    <section class="view" id="view-player">
+      <div class="player-shell">
+        <div class="player-wrap" id="playerWrap">
+          <video id="video" preload="metadata" crossorigin="anonymous">
+            <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
+          </video>
+
+          <!-- Center play button -->
+          <button class="center-play" id="centerPlay">▶</button>
+
+          <!-- Live subtitle overlay -->
+          <div class="live-subtitle" id="liveSubtitle"></div>
+
+          <!-- Karaoke lyrics overlay -->
+          <div class="karaoke-overlay" id="karaokeOverlay">
+            <div class="lyric-line">🎵 Click "Karaoke" to load lyrics 🎵</div>
+          </div>
+
+          <!-- Floating reactions -->
+          <div class="reactions-layer" id="reactionsLayer"></div>
+
+          <!-- Gesture indicator -->
+          <div class="gesture-indicator" id="gestureIndicator">
+            <span id="gestureIcon">🔊</span>
+            <div class="gesture-bar"><div id="gestureFill"></div></div>
+          </div>
+
+          <!-- Controls -->
+          <div class="controls" id="controls">
+            <div class="progress-row">
+              <input type="range" id="progress" min="0" max="100" value="0" step="0.1" />
+              <div class="progress-times">
+                <span id="curTime">0:00</span>
+                <span id="duration">0:00</span>
+              </div>
+            </div>
+            <div class="controls-row">
+              <div class="controls-left">
+                <button class="ctrl-btn" id="playBtn" title="Play/Pause">▶</button>
+                <button class="ctrl-btn" id="rewindBtn" title="-10s">⟲ 10</button>
+                <button class="ctrl-btn" id="forwardBtn" title="+10s">10 ⟳</button>
+                <div class="vol-wrap">
+                  <button class="ctrl-btn" id="muteBtn">🔊</button>
+                  <input type="range" id="volume" min="0" max="100" value="100" />
+                </div>
+              </div>
+              <div class="controls-right">
+                <select class="ctrl-select" id="speedSelect" title="Speed">
+                  <option value="0.5">0.5x</option>
+                  <option value="0.75">0.75x</option>
+                  <option value="1" selected>1x</option>
+                  <option value="1.25">1.25x</option>
+                  <option value="1.5">1.5x</option>
+                  <option value="2">2x</option>
+                  <option value="3">3x</option>
+                </select>
+                <button class="ctrl-btn" id="abLoopBtn" title="A-B Loop">🔁 A-B</button>
+                <button class="ctrl-btn" id="shotBtn" title="Screenshot">📷</button>
+                <button class="ctrl-btn" id="pipBtn" title="Picture-in-Picture">⧉</button>
+                <button class="ctrl-btn" id="fsBtn" title="Fullscreen">⛶</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Side panel with feature toggles -->
+        <aside class="player-side">
+          <h3>Smart Features</h3>
+          <div class="toggle-list">
+            <label class="toggle"><input type="checkbox" id="aiSubsToggle" /> <span>🤖 AI Live Subtitles</span></label>
+            <label class="toggle"><input type="checkbox" id="dubToggle" /> <span>🎙️ AI Voice Dubbing (demo)</span></label>
+            <label class="toggle"><input type="checkbox" id="upscaleToggle" /> <span>📺 8K AI Upscaling</span></label>
+            <label class="toggle"><input type="checkbox" id="frameInterpToggle" /> <span>🎞️ Frame Interpolation</span></label>
+            <label class="toggle"><input type="checkbox" id="sceneSkipToggle" /> <span>⏩ Smart Scene Skip</span></label>
+            <label class="toggle"><input type="checkbox" id="karaokeToggle" /> <span>🎤 Karaoke Mode</span></label>
+            <label class="toggle"><input type="checkbox" id="learnToggle" /> <span>📚 Learn Mode</span></label>
+            <label class="toggle"><input type="checkbox" id="vrToggle" /> <span>🥽 VR Split View</span></label>
+            <label class="toggle"><input type="checkbox" id="spatialToggle" /> <span>🔊 Spatial Audio</span></label>
+            <label class="toggle"><input type="checkbox" id="boosterToggle" /> <span>📢 Volume Booster +200%</span></label>
+          </div>
+
+          <h3>Dubbing Language</h3>
+          <select class="ctrl-select wide" id="dubLang">
+            <option value="hi">Hindi</option>
+            <option value="ta">Tamil</option>
+            <option value="te">Telugu</option>
+            <option value="bn">Bengali</option>
+            <option value="es">Spanish</option>
+            <option value="fr">French</option>
+            <option value="ja">Japanese</option>
+          </select>
+
+          <h3>Filters</h3>
+          <div class="slider-row">
+            <label>Brightness <input type="range" id="brightness" min="50" max="200" value="100" /></label>
+            <label>Contrast <input type="range" id="contrast" min="50" max="200" value="100" /></label>
+            <label>Saturation <input type="range" id="saturation" min="0" max="200" value="100" /></label>
+          </div>
+
+          <h3>Sleep Timer</h3>
+          <div class="chip-row">
+            <button class="chip" data-sleep="5">5m</button>
+            <button class="chip" data-sleep="15">15m</button>
+            <button class="chip" data-sleep="30">30m</button>
+            <button class="chip" data-sleep="60">1h</button>
+            <button class="chip" data-sleep="0">Off</button>
+          </div>
+          <div class="sleep-status" id="sleepStatus">Off</div>
+
+          <h3>AI Movie Summary</h3>
+          <button class="btn btn-ghost wide" id="summaryBtn">✨ Generate Summary</button>
+          <div class="summary-box" id="summaryBox" hidden></div>
+
+          <h3>Word Lookup (Learn Mode)</h3>
+          <div class="lookup-box">
+            <input id="wordInput" placeholder="Type a word..." />
+            <button class="btn btn-primary" id="lookupBtn">Lookup</button>
+          </div>
+          <div class="lookup-result" id="lookupResult"></div>
+        </aside>
+      </div>
+
+      <!-- Keyboard shortcut hint -->
+      <div class="shortcut-hint">
+        <strong>Shortcuts:</strong>
+        Space = Play/Pause • ← → = Seek • ↑ ↓ = Volume • F = Fullscreen • M = Mute • S = Screenshot • P = PiP • A = Set Loop A • B = Set Loop B
+      </div>
+    </section>
+
+    <!-- =============== SEARCH VIEW =============== -->
+    <section class="view" id="view-search">
+      <div class="page-head">
+        <h1>🔍 Universal Search</h1>
+        <p>One search across Netflix, Prime, MX, YouTube, Disney+ and more</p>
+      </div>
+      <div class="search-big">
+        <input type="text" placeholder="Search any movie, show, or song..." id="bigSearch" />
+        <button class="btn btn-primary" id="bigSearchBtn">Search Everywhere</button>
+      </div>
+      <div class="platform-filters" id="platformFilters">
+        <button class="platform-chip active" data-platform="all">All</button>
+        <button class="platform-chip" data-platform="MX">MX</button>
+        <button class="platform-chip" data-platform="Netflix">Netflix</button>
+        <button class="platform-chip" data-platform="Prime">Prime</button>
+        <button class="platform-chip" data-platform="YouTube">YouTube</button>
+        <button class="platform-chip" data-platform="Disney+">Disney+</button>
+      </div>
+      <div class="search-results" id="searchResults"></div>
+    </section>
+
+    <!-- =============== WATCH PARTY VIEW =============== -->
+    <section class="view" id="view-watchparty">
+      <div class="page-head">
+        <h1>🎉 Watch Party</h1>
+        <p>Watch in sync with friends — chat, react, voice call</p>
+      </div>
+
+      <div class="party-shell">
+        <div class="party-main">
+          <div class="party-video-wrap">
+            <video id="partyVideo" controls preload="metadata">
+              <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" type="video/mp4" />
+            </video>
+            <div class="reactions-layer" id="partyReactions"></div>
+          </div>
+          <div class="party-controls">
+            <div class="party-room">
+              <span class="room-label">Room Code</span>
+              <span class="room-code" id="roomCode">XK7-92A</span>
+              <button class="btn btn-ghost" id="copyRoomBtn">Copy</button>
+            </div>
+            <div class="party-actions">
+              <button class="btn btn-primary" id="syncBtn">⟳ Sync Now</button>
+              <button class="btn btn-ghost" id="micBtn">🎤 Voice On</button>
+              <button class="btn btn-ghost" id="camBtn">📹 Cam On</button>
+            </div>
+          </div>
+          <div class="reaction-bar">
+            <button class="emoji-btn" data-emoji="❤️">❤️</button>
+            <button class="emoji-btn" data-emoji="😂">😂</button>
+            <button class="emoji-btn" data-emoji="😮">😮</button>
+            <button class="emoji-btn" data-emoji="😢">😢</button>
+            <button class="emoji-btn" data-emoji="🔥">🔥</button>
+            <button class="emoji-btn" data-emoji="👏">👏</button>
+            <button class="emoji-btn" data-emoji="🎉">🎉</button>
+            <button class="emoji-btn" data-emoji="💯">💯</button>
+          </div>
+        </div>
+
+        <aside class="party-side">
+          <div class="participants">
+            <h3>Participants (4)</h3>
+            <div class="participant"><div class="avatar small">U</div> You <span class="dot live">●</span></div>
+            <div class="participant"><div class="avatar small a">A</div> Aarav <span class="dot live">●</span></div>
+            <div class="participant"><div class="avatar small p">P</div> Priya <span class="dot live">●</span></div>
+            <div class="participant"><div class="avatar small r">R</div> Rohan <span class="dot away">●</span></div>
+          </div>
+          <div class="chat">
+            <h3>Live Chat</h3>
+            <div class="chat-log" id="chatLog">
+              <div class="chat-msg"><b>Aarav:</b> Yaar ye scene epic hai 🔥</div>
+              <div class="chat-msg"><b>Priya:</b> Dialogue toh sun ❤️</div>
+            </div>
+            <div class="chat-input">
+              <input id="chatInput" placeholder="Type a message..." />
+              <button class="btn btn-primary" id="sendChatBtn">Send</button>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- =============== LIBRARY VIEW =============== -->
+    <section class="view" id="view-library">
+      <div class="page-head">
+        <h1>📚 My Library</h1>
+        <p>Your watch history, playlists & downloads</p>
+      </div>
+      <div class="tabs">
+        <button class="tab active" data-tab="history">History</button>
+        <button class="tab" data-tab="playlists">Playlists</button>
+        <button class="tab" data-tab="downloads">Downloads</button>
+      </div>
+      <div class="tab-pane active" id="tab-history">
+        <div class="content-row" id="historyRow"></div>
+      </div>
+      <div class="tab-pane" id="tab-playlists">
+        <div class="playlist-grid" id="playlistGrid"></div>
+        <button class="btn btn-primary" id="newPlaylistBtn">+ New Playlist</button>
+      </div>
+      <div class="tab-pane" id="tab-downloads">
+        <div class="empty-state">
+          <div class="empty-icon">📥</div>
+          <p>Smart downloads will appear here. WiFi pe auto-download enabled.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== VAULT VIEW =============== -->
+    <section class="view" id="view-vault">
+      <div class="page-head">
+        <h1>🔒 Private Vault</h1>
+        <p>End-to-end encrypted personal video storage</p>
+      </div>
+      <div class="vault-locked" id="vaultLocked">
+        <div class="lock-icon">🔐</div>
+        <h2>Enter PIN to unlock</h2>
+        <input type="password" id="vaultPin" placeholder="Enter 4-digit PIN (default: 1234)" maxlength="4" />
+        <button class="btn btn-primary" id="vaultUnlock">Unlock</button>
+      </div>
+      <div class="vault-unlocked" id="vaultUnlocked" hidden>
+        <div class="vault-controls">
+          <input type="file" id="vaultUpload" accept="video/*" multiple hidden />
+          <button class="btn btn-primary" onclick="document.getElementById('vaultUpload').click()">+ Add Encrypted Video</button>
+          <button class="btn btn-ghost" id="vaultLock">Lock Vault</button>
+        </div>
+        <div class="vault-grid" id="vaultGrid">
+          <div class="empty-state">
+            <div class="empty-icon">🛡️</div>
+            <p>No private videos yet. Add one — it'll be encrypted in your browser.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== SETTINGS VIEW =============== -->
+    <section class="view" id="view-settings">
+      <div class="page-head">
+        <h1>⚙️ Settings</h1>
+        <p>Customize MX Player Pro</p>
+      </div>
+      <div class="settings-grid">
+        <div class="setting-card">
+          <h3>Theme</h3>
+          <div class="chip-row">
+            <button class="chip active" data-theme="dark">Dark</button>
+            <button class="chip" data-theme="light">Light</button>
+            <button class="chip" data-theme="oled">OLED Black</button>
+          </div>
+        </div>
+        <div class="setting-card">
+          <h3>Default Quality</h3>
+          <select class="ctrl-select wide">
+            <option>Auto (recommended)</option>
+            <option>4K Ultra HD</option>
+            <option>1080p Full HD</option>
+            <option>720p HD</option>
+            <option>480p</option>
+          </select>
+        </div>
+        <div class="setting-card">
+          <h3>Parental Controls</h3>
+          <label class="toggle"><input type="checkbox" /> <span>Enable Kids Mode</span></label>
+          <label class="toggle"><input type="checkbox" /> <span>AI age-appropriate filtering</span></label>
+          <label class="toggle"><input type="checkbox" /> <span>Block content over PG-13</span></label>
+        </div>
+        <div class="setting-card">
+          <h3>Performance</h3>
+          <label class="toggle"><input type="checkbox" checked /> <span>Hardware acceleration</span></label>
+          <label class="toggle"><input type="checkbox" checked /> <span>Predictive pre-loading</span></label>
+          <label class="toggle"><input type="checkbox" /> <span>Battery saver AI</span></label>
+        </div>
+        <div class="setting-card">
+          <h3>Privacy</h3>
+          <label class="toggle"><input type="checkbox" checked /> <span>Encrypt watch history</span></label>
+          <label class="toggle"><input type="checkbox" /> <span>Personalized ads</span></label>
+          <button class="btn btn-ghost wide" id="clearDataBtn">Clear All Data</button>
+        </div>
+        <div class="setting-card">
+          <h3>About</h3>
+          <p style="opacity:.7">MX Player Pro — Web Edition</p>
+          <p style="opacity:.7">Version 1.0.0 (Prototype)</p>
+          <p style="opacity:.7">Built with ❤️ in your browser</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============= MOOD MODAL ============= -->
+  <div class="modal" id="moodModal" hidden>
+    <div class="modal-content">
+      <button class="modal-close" data-close="moodModal">✕</button>
+      <h2>How are you feeling?</h2>
+      <p>We'll recommend perfect content for your mood</p>
+      <div class="mood-grid">
+        <button class="mood-btn" data-mood="happy">😄<span>Happy</span></button>
+        <button class="mood-btn" data-mood="sad">😢<span>Sad</span></button>
+        <button class="mood-btn" data-mood="excited">🤩<span>Excited</span></button>
+        <button class="mood-btn" data-mood="relaxed">😌<span>Relaxed</span></button>
+        <button class="mood-btn" data-mood="romantic">😍<span>Romantic</span></button>
+        <button class="mood-btn" data-mood="adventurous">🤠<span>Adventurous</span></button>
+        <button class="mood-btn" data-mood="thrilled">😱<span>Thrilled</span></button>
+        <button class="mood-btn" data-mood="nostalgic">🥹<span>Nostalgic</span></button>
+      </div>
+      <div class="mood-result" id="moodResult"></div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <!-- Scripts -->
+  <script src="scripts/data.js"></script>
+  <script src="scripts/storage.js"></script>
+  <script src="scripts/app.js"></script>
+  <script src="scripts/player.js"></script>
+  <script src="scripts/ai-features.js"></script>
+  <script src="scripts/gestures.js"></script>
+  <script src="scripts/watchparty.js"></script>
+  <script src="scripts/search.js"></script>
+  <script src="scripts/library.js"></script>
+  <script src="scripts/vault.js"></script>
+  <script src="scripts/init.js"></script>
+</body>
+</html>
