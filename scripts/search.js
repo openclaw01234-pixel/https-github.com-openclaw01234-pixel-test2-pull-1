@@ -25,7 +25,7 @@ const Search = {
       if (this.currentPlatform !== 'all') {
         items = items.filter(i => i.platform === this.currentPlatform);
       }
-      this.render(items);
+      this.render(items, q);
       App.toast(`Found ${items.length} results across platforms`);
     };
 
@@ -57,14 +57,54 @@ const Search = {
     });
   },
 
-  render(items) {
+  render(items, query) {
     const container = document.getElementById('searchResults');
     if (!container) return;
+    const q = (query || document.getElementById('bigSearch')?.value || '').trim();
+
     if (!items.length) {
-      container.innerHTML = `<div class="empty-search">
-        <div style="font-size:48px;margin-bottom:8px;">🔍</div>
-        <p>No results found. Try a different search.</p>
-      </div>`;
+      // Show fallback: search on external platforms
+      const encoded = encodeURIComponent(q);
+      const fallbackHtml = q ? `
+        <div class="search-fallback">
+          <div class="fallback-icon">🔍</div>
+          <h3>"${q}" — koi local result nahi mila</h3>
+          <p>Try karo external platforms pe — naya tab mein open hoga:</p>
+          <div class="fallback-links">
+            <a class="fallback-btn yt" href="https://www.youtube.com/results?search_query=${encoded}" target="_blank" rel="noopener">
+              <span class="fb-icon">▶️</span>
+              <span class="fb-label">YouTube pe search karo</span>
+            </a>
+            <a class="fallback-btn ggl" href="https://www.google.com/search?q=${encoded}+watch+online" target="_blank" rel="noopener">
+              <span class="fb-icon">🌐</span>
+              <span class="fb-label">Google pe search karo</span>
+            </a>
+            <a class="fallback-btn nf" href="https://www.netflix.com/search?q=${encoded}" target="_blank" rel="noopener">
+              <span class="fb-icon">🎬</span>
+              <span class="fb-label">Netflix pe search</span>
+            </a>
+            <a class="fallback-btn pr" href="https://www.primevideo.com/search/ref=atv_nb_sr?phrase=${encoded}" target="_blank" rel="noopener">
+              <span class="fb-icon">📺</span>
+              <span class="fb-label">Prime Video pe search</span>
+            </a>
+            <a class="fallback-btn ds" href="https://www.hotstar.com/in/search?q=${encoded}" target="_blank" rel="noopener">
+              <span class="fb-icon">⭐</span>
+              <span class="fb-label">Hotstar/Disney+ pe search</span>
+            </a>
+            <a class="fallback-btn jio" href="https://www.jiocinema.com/search/${encoded}" target="_blank" rel="noopener">
+              <span class="fb-icon">🎥</span>
+              <span class="fb-label">JioCinema pe search</span>
+            </a>
+          </div>
+          <p class="fallback-hint">💡 Tip: Sahi spelling try karo — jaise "radha", "krishna", "bahubali", "rrr"</p>
+        </div>
+      ` : `
+        <div class="empty-search">
+          <div style="font-size:48px;margin-bottom:8px;">🔍</div>
+          <p>Search karne ke liye kuch type karo upar search box mein.</p>
+        </div>
+      `;
+      container.innerHTML = fallbackHtml;
       return;
     }
     container.innerHTML = items.map(item => {
@@ -86,8 +126,25 @@ const Search = {
     container.querySelectorAll('.result-card').forEach(card => {
       card.addEventListener('click', () => {
         const item = items.find(i => i.id === card.dataset.id);
-        App.toast(`Opening ${item.title} on ${item.platform}...`);
-        App.switchView('player');
+        // Open the platform's search/website in a new tab
+        const enc = encodeURIComponent(item.title);
+        const urls = {
+          'YouTube':  `https://www.youtube.com/results?search_query=${enc}`,
+          'Netflix':  `https://www.netflix.com/search?q=${enc}`,
+          'Prime':    `https://www.primevideo.com/search/ref=atv_nb_sr?phrase=${enc}`,
+          'Disney+':  `https://www.hotstar.com/in/search?q=${enc}`,
+          'Hotstar':  `https://www.hotstar.com/in/search?q=${enc}`,
+          'JioCinema':`https://www.jiocinema.com/search/${enc}`,
+          'MX':       `https://www.mxplayer.in/search?query=${enc}`,
+        };
+        const url = urls[item.platform];
+        if (url) {
+          window.open(url, '_blank', 'noopener');
+          App.toast(`Opening ${item.title} on ${item.platform}...`);
+        } else {
+          App.toast(`Opening ${item.title}...`);
+          App.switchView('player');
+        }
       });
     });
   }

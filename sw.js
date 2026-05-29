@@ -1,5 +1,5 @@
 /* Service Worker for MX Player Pro PWA - offline support */
-const CACHE = 'mxpro-v4-fp-' + new Date().toISOString().slice(0, 10);
+const CACHE = 'mxpro-v5-search-' + new Date().toISOString().slice(0, 10);
 const ASSETS = [
   './',
   './index.html',

@@ -594,3 +594,101 @@
 body:has(#view-auth.active) .fab {
   display: none;
 }
+
+
+
+/* =========================================
+   Search Fallback (when no local results)
+   ========================================= */
+
+.search-fallback {
+  background: var(--bg-1);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  grid-column: 1 / -1;
+}
+
+.search-fallback .fallback-icon {
+  font-size: 56px;
+  opacity: 0.85;
+  filter: drop-shadow(0 4px 12px rgba(255,51,102,0.3));
+}
+
+.search-fallback h3 {
+  font-size: 18px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #fff 0%, #ff6b3d 100%);
+  -webkit-background-clip: text; background-clip: text;
+  color: transparent;
+  word-break: break-word;
+  max-width: 100%;
+}
+
+.search-fallback p {
+  color: var(--text-dim);
+  font-size: 14px;
+  max-width: 480px;
+}
+
+.fallback-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 10px;
+  width: 100%;
+  max-width: 560px;
+  margin-top: 4px;
+}
+
+.fallback-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  border-radius: 12px;
+  background: var(--bg-2);
+  border: 1px solid rgba(255,255,255,0.06);
+  color: var(--text);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.2s;
+  text-align: left;
+}
+.fallback-btn:hover {
+  transform: translateY(-2px);
+  border-color: var(--primary);
+  background: var(--bg-3);
+}
+.fallback-btn .fb-icon {
+  font-size: 22px;
+  flex-shrink: 0;
+}
+.fallback-btn .fb-label {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.fallback-btn.yt:hover  { border-color: #ff0000; box-shadow: 0 4px 16px rgba(255,0,0,0.25); }
+.fallback-btn.ggl:hover { border-color: #4285f4; box-shadow: 0 4px 16px rgba(66,133,244,0.25); }
+.fallback-btn.nf:hover  { border-color: #e50914; box-shadow: 0 4px 16px rgba(229,9,20,0.25); }
+.fallback-btn.pr:hover  { border-color: #00a8e1; box-shadow: 0 4px 16px rgba(0,168,225,0.25); }
+.fallback-btn.ds:hover  { border-color: #113ccf; box-shadow: 0 4px 16px rgba(17,60,207,0.25); }
+.fallback-btn.jio:hover { border-color: #ff3366; box-shadow: 0 4px 16px rgba(255,51,102,0.25); }
+
+.fallback-hint {
+  font-size: 12px !important;
+  color: var(--text-muted) !important;
+  font-style: italic;
+  margin-top: 8px;
+}
+
+/* Add platform badge color for new platforms */
+.platform-badge.hotstar { background: #1f80e0; }
+.platform-badge.jiocinema { background: linear-gradient(135deg, #ff3366, #7c3aed); }
