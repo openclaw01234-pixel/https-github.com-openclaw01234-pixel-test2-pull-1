@@ -1,5 +1,5 @@
 /* Service Worker for MX Player Pro PWA - offline support */
-const CACHE = 'mxpro-v5-search-' + new Date().toISOString().slice(0, 10);
+const CACHE = 'mxpro-v6-pro-' + new Date().toISOString().slice(0, 10);
 const ASSETS = [
   './',
   './index.html',
@@ -21,6 +21,10 @@ const ASSETS = [
   './scripts/library.js',
   './scripts/vault.js',
   './scripts/video-opener.js',
+  './scripts/subtitles.js',
+  './scripts/media-session.js',
+  './scripts/external-helpers.js',
+  './scripts/onboarding.js',
   './scripts/init.js',
   './scripts/pwa.js',
   './icons/icon-192.png',

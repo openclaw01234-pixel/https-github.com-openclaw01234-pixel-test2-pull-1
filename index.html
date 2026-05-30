@@ -289,9 +289,12 @@
         </div>
         <input type="file" id="filePicker" accept="video/*,audio/*,.mkv,.avi,.mov,.flv,.wmv,.webm" hidden />
         <input type="file" id="folderPicker" webkitdirectory directory multiple hidden />
+        <input type="file" id="subtitlePicker" accept=".srt,.vtt,text/srt,text/vtt" hidden />
         <button class="toolbar-btn primary" id="openFileBtn">📂 Open File</button>
         <button class="toolbar-btn" id="openFolderBtn">📁 Open Folder</button>
         <button class="toolbar-btn" id="openUrlBtn">🌐 Open URL</button>
+        <button class="toolbar-btn" id="subtitleBtn" title="Load subtitle file">📋 Subtitles</button>
+        <button class="toolbar-btn" id="castBtn" title="Cast to TV">📺 Cast</button>
       </div>
 
       <div class="player-shell">
@@ -303,8 +306,11 @@
           <!-- Center play button -->
           <button class="center-play" id="centerPlay">▶</button>
 
-          <!-- Live subtitle overlay -->
+          <!-- Live subtitle overlay (AI-generated) -->
           <div class="live-subtitle" id="liveSubtitle"></div>
+
+          <!-- External file subtitle overlay (.srt/.vtt) -->
+          <div class="subtitle-overlay" id="subtitleOverlay"></div>
 
           <!-- Karaoke lyrics overlay -->
           <div class="karaoke-overlay" id="karaokeOverlay">
@@ -391,6 +397,8 @@
 
           <h3>Smart Features</h3>
           <div class="toggle-list">
+            <label class="toggle"><input type="checkbox" id="subtitleToggle" /> <span>📋 External Subtitles (.srt/.vtt)</span></label>
+            <label class="toggle"><input type="checkbox" id="autoPipToggle" checked /> <span>⧉ Auto Picture-in-Picture</span></label>
             <label class="toggle"><input type="checkbox" id="aiSubsToggle" /> <span>🤖 AI Live Subtitles</span></label>
             <label class="toggle"><input type="checkbox" id="dubToggle" /> <span>🎙️ AI Voice Dubbing (demo)</span></label>
             <label class="toggle"><input type="checkbox" id="upscaleToggle" /> <span>📺 8K AI Upscaling</span></label>
@@ -430,6 +438,22 @@
             <button class="chip" data-sleep="0">Off</button>
           </div>
           <div class="sleep-status" id="sleepStatus">Off</div>
+
+          <h3>Subtitle Settings</h3>
+          <div class="chip-row">
+            <span style="font-size:12px; color:var(--text-muted); width:100%;">Sync offset: <strong id="subOffsetDisplay">0.0s</strong></span>
+            <button class="chip" data-sub-offset="-500">-0.5s</button>
+            <button class="chip" data-sub-offset="-100">-0.1s</button>
+            <button class="chip" data-sub-offset="100">+0.1s</button>
+            <button class="chip" data-sub-offset="500">+0.5s</button>
+          </div>
+          <div class="chip-row" style="margin-top:8px;">
+            <span style="font-size:12px; color:var(--text-muted); width:100%;">Font size:</span>
+            <button class="chip" data-sub-size="14">Small</button>
+            <button class="chip" data-sub-size="18">Medium</button>
+            <button class="chip" data-sub-size="24">Large</button>
+            <button class="chip" data-sub-size="32">XL</button>
+          </div>
 
           <h3>AI Movie Summary</h3>
           <button class="btn btn-ghost wide" id="summaryBtn">✨ Generate Summary</button>
@@ -640,6 +664,10 @@
           <button class="btn btn-ghost wide" id="clearDataBtn">Clear All Data</button>
         </div>
         <div class="setting-card">
+          <h3>Help &amp; Tutorial</h3>
+          <button class="btn btn-ghost wide" id="showOnboardingBtn">📖 Replay Onboarding Tutorial</button>
+        </div>
+        <div class="setting-card">
           <h3>Account</h3>
           <div id="accountInfo" style="font-size:13px; color:var(--text-dim); margin-bottom:12px; line-height:1.6;"></div>
           <button class="btn btn-ghost wide" id="logoutBtn">Sign Out</button>
@@ -738,6 +766,10 @@
   <script src="scripts/library.js"></script>
   <script src="scripts/vault.js"></script>
   <script src="scripts/video-opener.js"></script>
+  <script src="scripts/subtitles.js"></script>
+  <script src="scripts/media-session.js"></script>
+  <script src="scripts/external-helpers.js"></script>
+  <script src="scripts/onboarding.js"></script>
   <script src="scripts/init.js"></script>
   <script src="scripts/pwa.js"></script>
 </body>

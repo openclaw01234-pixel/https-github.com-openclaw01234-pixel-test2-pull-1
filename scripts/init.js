@@ -13,6 +13,10 @@ document.addEventListener('DOMContentLoaded', () => {
   Library.init();
   Vault.init();
   VideoOpener.init();
+  Subtitles.init();
+  MediaSessionMgr.init();
+  ExternalHelpers.init();
+  Onboarding.init();
 
   // Render rows
   renderContentRow('trendingRow', TRENDING);
